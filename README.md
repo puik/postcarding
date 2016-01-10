@@ -8,7 +8,7 @@ Rahvusraamatukogus on digiteeritud üle 7000 ajaloolise postkaardi ([postkaartid
 ## Eesmärk:
 Koguda *crowdsourcingu* põhimõttel (sarnaselt rakendustele [Ajapaik.ee](http://ajapaik.ee) ja [Sift.pics](http://sift.pics)) postkaartide ja ennekõike kaartide tagumise (st tekstikülje, mitte pildipoole) kohta lisainfot, mis on praegu postkaartide juures kirjeldamata.
 
-Tulevikus oleks vaja teha rakendus veebirakenduseks ja lisada järjest eri funktsioone, alustuseks üks konkreetne ülesanne: saadetud, st tekstiga postkaartide välja sorteerimine.
+Tulevikus on vaja teha rakendus veebirakenduseks ja lisada järjest eri funktsioone, alustuseks üks konkreetne ülesanne: saadetud, st tekstiga postkaartide välja sorteerimine.
 
 ## Idee esialgsest rakendusest:
 Kasutajale kuvatakse täisekraanil üks postkaart, kasutaja hiireklikk keerab postkaardi ringi, st kuvab tagakülje. Kui postkaardi tagaküljel on tekst, märgib kasutaja selle tühikuklahvi vajutamisega, mille peale saab järgmise postkaardi, kui teksti pole, siis hiireklikk annab samuti järgmise postkaardi.
