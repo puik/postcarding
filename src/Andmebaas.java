@@ -9,7 +9,7 @@ public class Andmebaas {
 
     public Andmebaas() {
         looYhendus();
-        //kysiPostkaardiID();
+        kysiPostkaardiID();
         sulgeYhendus();
 
     }

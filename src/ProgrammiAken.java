@@ -1,14 +1,14 @@
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import postcarding.Andmebaas;
 
 
 /**
@@ -17,8 +17,10 @@ import postcarding.Andmebaas;
 public class ProgrammiAken {
 
     private static Stage aken = new Stage();
-    private static BorderPane raamistik = new BorderPane();
-    private static Scene stseen = new Scene(raamistik);
+    //private static BorderPane raamistik = new BorderPane();
+    private static StackPane kuvakihid = new StackPane();
+    private static Scene stseen = new Scene(kuvakihid);
+
 
     public ProgrammiAken(){
 
@@ -26,31 +28,23 @@ public class ProgrammiAken {
 
     }
 
-    public void kuvaAken() {
-        //Postkaart postkaart = new Postkaart();
+    public class Postkaart {
+        public Image esikylg;
+        public Image tagakylg;
 
-        //pildi laadimine
-        //Image postkaart = new Image("http://ajapaik.ee/media/uploads/DIGAR_58746_1.jpg", true); //Landscape pilt
-        //Image postkaart = new Image("http://ajapaik.ee/media/uploads/DIGAR_56509_1.jpg", true); //NB pystipidine pilt 56509
-        Image postkaart = new Image("http://ajapaik.ee/media/uploads/Digar_postkaartide_tagakyljed/DIGAR_" + andmebaas.getPostkaart_id() + "_2.jpg", true);
+        public Postkaart() {
+            this.esikylg= new Image("http://ajapaik.ee/media/uploads/DIGAR_" + andmebaas.getPostkaart_id() + "_1.jpg", true);
+            this.tagakylg = new Image("http://ajapaik.ee/media/uploads/Digar_postkaartide_tagakyljed/DIGAR_" + andmebaas.getPostkaart_id() + "_2.jpg", true);
+
+        }
+
+    }
+
+    public void kuvaAken() {
 
         // ekraanisuuruse määramine
         Rectangle2D ekraanipiirid = Screen.getPrimary().getVisualBounds();
-
-        //pildi näitamine -- kas peaks üldse eraldi klassi tegema selleks?
-        ImageView pildikuva = new ImageView();
-        pildikuva.setImage(postkaart);
-        pildikuva.setFitWidth(ekraanipiirid.getWidth());
-        pildikuva.setFitHeight(ekraanipiirid.getHeight());
-        pildikuva.setPreserveRatio(true);
-
-        //rotate'imine peaks minema nupu alla
-        //pildikuva.setRotate(90);
-
-
-
         System.out.println(ekraanipiirid);
-
 
         aken.setScene(stseen);
         //aken.setFullScreen(true);
@@ -59,11 +53,69 @@ public class ProgrammiAken {
         aken.setTitle("Postcarding");
         aken.show();
 
-        raamistik.getChildren().addAll(pildikuva);
+        //pildi näitamine -- kas peaks üldse eraldi klassi tegema selleks?
+
+        Postkaart postkaart = new Postkaart();
+
+        ImageView pildikuva = new ImageView();
+
+        pildikuva.setImage(postkaart.esikylg);
+        pildikuva.setFitWidth(ekraanipiirid.getWidth());
+        pildikuva.setFitHeight(ekraanipiirid.getHeight());
+        pildikuva.setPreserveRatio(true);
+
+        //rotate'imine peaks minema nupu alla
+        //pildikuva.setRotate(90);
+
+        kuvakihid.getChildren().addAll(pildikuva);
+
+        kuvakihid.isFocused();
+
+        /*
+        kuvakihid.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            public void handle(KeyEvent klahvivajutus) {
+                System.out.println("Vajutatud klahv: " + klahvivajutus.getText());
+                andmebaas.m2rgiTekstiga();
+            }
+        });
+        */
+
+
+
+        kuvakihid.setOnMouseClicked(event -> {
+            pildikuva.setImage(postkaart.tagakylg);
+
+            /**/
+            andmebaas.looYhendus();
+            andmebaas.logiVaatamine();
+            andmebaas.kysiPostkaardiID();
+            andmebaas.sulgeYhendus();
+            Postkaart pk = new Postkaart();
+            pildikuva.setImage(pk.esikylg);
+            /**/
+
+            pildikuva.setFitWidth(ekraanipiirid.getWidth());
+            pildikuva.setFitHeight(ekraanipiirid.getHeight());
+            pildikuva.setPreserveRatio(true);
+
+        });
+
+
+
+        /*
+        kuvakihid.setOnMouseClicked(event -> {
+
+            Andmebaas andmebaas = new Andmebaas();
+            pildikuva.setImage(postkaart.esikylg);
+
+        });*/
 
     }
 
 
 
-    Andmebaas andmebaas = new Andmebaas(); //ei tea, kas see on õige koht, varem oli see mul Mainis
+
+
+    Andmebaas andmebaas = new Andmebaas();
+
 }
