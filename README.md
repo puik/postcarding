@@ -14,6 +14,7 @@ Kasutajale kuvatakse täisekraanil üks postkaart, kasutaja hiireklikk keerab po
 SQLite andmebaasi logitakse vaadatud pildid ja tekstiga postkaardid tähistatakse.
 
 ## Edasiarendused, lisavõimalused:
+* Veebirakenduse loomine
 * Margiga postkaartide tähistamine
 * Dateeringute sisestamine: postkaardi teksti dateering, postitemplite dateeringud
 * Saatmiskoha ja saaja koha sisestamine
