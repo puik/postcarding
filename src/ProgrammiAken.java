@@ -5,6 +5,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
@@ -71,6 +72,14 @@ public class ProgrammiAken {
 
         kuvakihid.isFocused();
 
+        aken.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+            System.out.println(event.getCode() == KeyCode.SPACE);
+            if (event.getCode() == KeyCode.SPACE) {
+                andmebaas.m2rgiTekstiga();
+            }
+        });
+
+
         /*
         kuvakihid.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent klahvivajutus) {
@@ -81,17 +90,15 @@ public class ProgrammiAken {
         */
 
 
-
         kuvakihid.setOnMouseClicked(event -> {
             pildikuva.setImage(postkaart.tagakylg);
 
             /**/
-            andmebaas.looYhendus();
             andmebaas.logiVaatamine();
             andmebaas.kysiPostkaardiID();
-            andmebaas.sulgeYhendus();
+
             Postkaart pk = new Postkaart();
-            pildikuva.setImage(pk.esikylg);
+            pildikuva.setImage(pk.tagakylg);
             /**/
 
             pildikuva.setFitWidth(ekraanipiirid.getWidth());
