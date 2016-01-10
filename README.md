@@ -1,5 +1,5 @@
 # Postcarding ehk postkaartide sorteerija
-Projekt [õppeaines I200: *Programmeerimise algkursus Java baasil*](http://i200.itcollege.ee/), sügissemester 2015, IT arenduse eriala, kaugõpe
+Projekt [**IT Kolledži**](http://www.itcollege.ee/) [õppeaines I200: *Programmeerimise algkursus Java baasil*](http://i200.itcollege.ee/), sügissemester 2015, IT arenduse eriala, kaugõpe
 
 ## Andmed:
 Rahvusraamatukogus on digiteeritud üle 7000 ajaloolise postkaardi ([postkaartide otsing RRi andmebaasis Digar](http://goo.gl/NxMyZz)).
